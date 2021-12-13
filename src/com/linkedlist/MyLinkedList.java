@@ -5,20 +5,19 @@ public class MyLinkedList<V> {
 	INode<V> head;
 	INode<V> tail;
 
-	void add(INode<V> newNode) {
+	public void add(INode<V> newNode) {
+		if (head == null) {
+			head = newNode;
+		}
 		if (tail == null) {
 			tail = newNode;
 		} else {
 			tail.setNext(newNode);
-		}
-		if (head == null) {
-			head = newNode;
-		} else {
 			tail = newNode;
 		}
 	}
 
-	INode<V> pop() {
+	public INode<V> pop() {
 		INode<V> tempNode = head;
 		head = head.getNext();
 		tempNode.setNext(null);
@@ -26,11 +25,15 @@ public class MyLinkedList<V> {
 	}
 
 	INode<V> popLast() {
-		INode<V> tempNode = tail;
-		tail = null;
-		return tempNode;
+		INode<V> tempNode = head;
+		while (tempNode.getNext().getNext() != null) {
+			tempNode = tempNode.getNext();
+		}
+		INode<V> lastNode = tempNode.getNext();
+		tempNode.setNext(null);
+		return lastNode;
 	}
-	
+
 	public void printMyNodes() {
 		System.out.println("My nodes : " + head);
 	}
