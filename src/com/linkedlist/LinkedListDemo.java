@@ -15,13 +15,17 @@ public class LinkedListDemo {
 		intLinkedList.add(myThirdNode);
 
 		intLinkedList.printMyNodes();
+		System.out.println("Size of Linkedlist : " + intLinkedList.size());
 
-		INode<Integer> lastNode = intLinkedList.popLast();
-
-		System.out.println("Last Node " + lastNode + " has been removed");
+		INode<Integer> myFourthNode = new MyNode<Integer>(40);
+		System.out.println("Insert " + intLinkedList.insert(30, myFourthNode));
 
 		intLinkedList.printMyNodes();
-
+		System.out.println("Size of Linkedlist : " + intLinkedList.size());
+		
+		System.out.println("Remove " + intLinkedList.remove(40));
+		intLinkedList.printMyNodes();
+		System.out.println("Size of Linkedlist : " + intLinkedList.size());
 	}
 
 	public void popFromLinkedList(MyLinkedList<Integer> intLinkedList) {
@@ -30,4 +34,13 @@ public class LinkedListDemo {
 		System.out.println("Node " + poppedNode + " is popped out from the linked list");
 		intLinkedList.printMyNodes();
 	}
+
+	public void popLastFromLinkedList(MyLinkedList<Integer> intLinkedList) {
+		INode<Integer> lastNode = intLinkedList.popLast();
+
+		System.out.println("Last Node " + lastNode + " has been removed");
+
+		intLinkedList.printMyNodes();
+	}
+
 }
