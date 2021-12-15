@@ -1,10 +1,10 @@
 package com.linkedlist;
 
-public interface INode<V> {
+public interface INode<K> {
 
-	V getValue();
-	void setValue(V key);
+	K getKey();
+	void setKey(K key);
 	
-	INode<V> getNext();
-	void setNext(INode<V> next);
+	INode<K> getNext();
+	void setNext(INode<K> next);
 }

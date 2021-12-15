@@ -1,11 +1,11 @@
 package com.linkedlist;
 
-public class MyLinkedList<V> {
+public class MyLinkedList<K> {
 
-	INode<V> head;
-	INode<V> tail;
+	INode<K> head;
+	INode<K> tail;
 
-	public void add(INode<V> newNode) {
+	public void add(INode<K> newNode) {
 		if (head == null) {
 			head = newNode;
 		}
@@ -17,27 +17,27 @@ public class MyLinkedList<V> {
 		}
 	}
 
-	public INode<V> pop() {
-		INode<V> tempNode = head;
+	public INode<K> pop() {
+		INode<K> tempNode = head;
 		head = head.getNext();
 		tempNode.setNext(null);
 		return tempNode;
 	}
 
-	public INode<V> popLast() {
-		INode<V> tempNode = head;
+	public INode<K> popLast() {
+		INode<K> tempNode = head;
 		while (tempNode.getNext().getNext() != null) {
 			tempNode = tempNode.getNext();
 		}
-		INode<V> lastNode = tempNode.getNext();
+		INode<K> lastNode = tempNode.getNext();
 		tempNode.setNext(null);
 		return lastNode;
 	}
 
-	public boolean search(INode<V> searchNode) {
-		INode<V> tempNode = head;
+	public boolean search(INode<K> searchNode) {
+		INode<K> tempNode = head;
 		while (tempNode != null) {
-			if (tempNode.getValue().equals(searchNode.getValue())) {
+			if (tempNode.getKey().equals(searchNode.getKey())) {
 				return true;
 			}
 			tempNode = tempNode.getNext();
@@ -45,11 +45,22 @@ public class MyLinkedList<V> {
 		return false;
 	}
 
-	public boolean insert(V after, INode<V> newNode) {
-		INode<V> tempNode = head;
+	public INode<K> search(K key) {
+		INode<K> tempNode = head;
 		while (tempNode != null) {
-			if (tempNode.getValue().equals(after)) {
-				INode<V> node = tempNode.getNext();
+			if (tempNode.getKey().equals(key)) {
+				return tempNode;
+			}
+			tempNode = tempNode.getNext();
+		}
+		return null;
+	}
+
+	public boolean insert(K after, INode<K> newNode) {
+		INode<K> tempNode = head;
+		while (tempNode != null) {
+			if (tempNode.getKey().equals(after)) {
+				INode<K> node = tempNode.getNext();
 				tempNode.setNext(newNode);
 				newNode.setNext(node);
 				return true;
@@ -59,14 +70,14 @@ public class MyLinkedList<V> {
 		return false;
 	}
 
-	public boolean remove(V value) {
-		INode<V> tempNode = head;
-		if (tempNode.getValue().equals(value)) {
+	public boolean remove(K value) {
+		INode<K> tempNode = head;
+		if (tempNode.getKey().equals(value)) {
 			head = tempNode.getNext();
 			return true;
 		}
 		while (tempNode.getNext() != null) {
-			if (tempNode.getNext().getValue().equals(value)) {
+			if (tempNode.getNext().getKey().equals(value)) {
 				tempNode.setNext(tempNode.getNext().getNext());
 				return true;
 			}
@@ -77,7 +88,7 @@ public class MyLinkedList<V> {
 
 	public int size() {
 		int size = 0;
-		INode<V> tempNode = head;
+		INode<K> tempNode = head;
 		while (tempNode != null) {
 			tempNode = tempNode.getNext();
 			size++;

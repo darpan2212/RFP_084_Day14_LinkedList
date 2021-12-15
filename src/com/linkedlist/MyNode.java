@@ -1,35 +1,35 @@
 package com.linkedlist;
 
-public class MyNode<V> implements INode<V> {
+public class MyNode<K> implements INode<K> {
 
-	private V value;
-	private INode<V> next;
+	private K key;
+	private INode<K> next;
 
-	public MyNode(V key) {
-		this.value = key;
+	public MyNode(K key) {
+		this.key = key;
 		next = null;
 	}
 
-	public V getValue() {
-		return value;
+	public K getKey() {
+		return key;
 	}
 
-	public void setValue(V value) {
-		this.value = value;
+	public void setKey(K value) {
+		this.key = value;
 	}
 
-	public INode<V> getNext() {
+	public INode<K> getNext() {
 		return next;
 	}
 
-	public void setNext(INode<V> next) {
+	public void setNext(INode<K> next) {
 		this.next = next;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("MyNode{value=").append(value).append("}");
+		builder.append("MyNode{key=").append(key).append("}");
 		if (next != null) {
 			builder.append("->").append(next);
 		}
