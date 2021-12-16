@@ -1,7 +1,5 @@
 package com.hashtable.test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import com.hashtable.MyLinkedHashMap;
 
 public class HashTableDemo {
