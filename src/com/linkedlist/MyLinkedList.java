@@ -103,4 +103,9 @@ public class MyLinkedList<K> {
 	public void printMyNodes() {
 		System.out.println("My nodes : " + head);
 	}
+	
+	@Override
+	public String toString() {
+		return head.toString();
+	}
 }

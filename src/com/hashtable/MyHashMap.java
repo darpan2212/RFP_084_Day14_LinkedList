@@ -27,8 +27,16 @@ public class MyHashMap<K, V> {
 		}
 	}
 
-	public int getIndex(K key) {
-		
-		return 0;
+	public int size() {
+		return myLinkedList.size();
+	}
+
+	public boolean remove(K key) {
+		return myLinkedList.remove(key);
+	}
+
+	@Override
+	public String toString() {
+		return "MyHashMapNodes{" + myLinkedList + "}";
 	}
 }
